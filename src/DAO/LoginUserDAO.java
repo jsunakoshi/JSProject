@@ -2,6 +2,7 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -50,6 +51,31 @@ public class LoginUserDAO {
 		return count;
 	}
 
+	// データを追加
+	public boolean checkUser(LoginUser user) throws DAOException {
+		getConnection();
+		boolean bFound = false;
+		//int count = 0;
+//		String name = user.getName();
+		int id = Integer.parseInt(user.getLogin_Id());
+		String pass = user.getPass();
+		String sql = "select * from login_user where login_id=" + id;
+		try(Statement stmt = con.prepareStatement(sql)) {
+			ResultSet  rs = stmt.executeQuery(sql);
+			if(rs.next()) {
+				String pass2 = rs.getString("password");
+				if(pass2.equals(pass)) {
+					bFound = true;
+				}
+			}
+		} catch(SQLException e) {
+			throw new DAOException("[UserDAO#insertMember]異常", e);
+		} finally {
+			close();
+		}
+		return bFound;
+	}
+	
 	private void close() throws DAOException {
 		try {
 			if (stmt != null) { stmt.close(); }
