@@ -17,7 +17,7 @@
 名前：<%= registerUser.getName()%><br>
 </p>
 <br>
-<a href="/Web/RegisterUser">戻る</a>
-<a href="/Web/RegisterUser?action=done">登録</a>
+<a href="/JSProject/RegisterUser">戻る</a>
+<a href="/JSProject/RegisterUser?action=done">登録</a>
 </body>
 </html>

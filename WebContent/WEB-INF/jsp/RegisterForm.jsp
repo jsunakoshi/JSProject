@@ -8,8 +8,8 @@
 </head>
 
 <body>
-<form action="/Web/RegisterLoginUser" method="post">
-ログインID：<input type="text" name="id">
+<form action="/JSProject/RegisterLoginUser" method="post">
+ログインID：<input type="text" name="id"><br>
 パスワード：<input type="text" name="pass"><br>
 名前：<input type="text" name="name"><br>
 <br>

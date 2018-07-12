@@ -46,7 +46,7 @@ public class RegisterLoginUser extends HttpServlet {
 		//「登録の開始」をリクエストされたときの処理
 		if(action == null){
 			//フォワード先を設定
-			forwardPath = "/WEB-INF/jsp/registerForm.jsp";
+			forwardPath = "/WEB-INF/jsp/RegisterForm.jsp";
 		}
 		//登録確認画面から「登録実行」をリクエストされたときの処理
 		else if(action.equals("done")){
