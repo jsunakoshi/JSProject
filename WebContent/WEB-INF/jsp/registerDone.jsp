@@ -9,6 +9,6 @@
 <body>
 <p>登録完了しました。</p>
 <br>
-<a href="/Web/RegisterUser">戻る</a>
+<a href="/JSProject/RegisterUser">戻る</a>
 </body>
 </html>
