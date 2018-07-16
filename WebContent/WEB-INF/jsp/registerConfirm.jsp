@@ -14,10 +14,12 @@
 
 <p>
 ログインID：<%= registerUser.getLogin_Id()%><br>
-名前：<%= registerUser.getName()%><br>
+パスワード：<%= registerUser.getPass() %><br>
+名前      ：<%= registerUser.getName()%><br>
 </p>
 <br>
-<a href="/JSProject/RegisterUser">戻る</a>
-<a href="/JSProject/RegisterUser?action=done">登録</a>
+<a href="/JSProject/RegisterLoginUser">戻る</a>
+<br>
+<a href="/JSProject/RegisterLoginUser?action=done">登録</a>
 </body>
 </html>

@@ -8,10 +8,11 @@
 </head>
 
 <body>
+<h1>ユーザ登録</h1>
 <form action="/JSProject/RegisterLoginUser" method="post">
 ログインID：<input type="text" name="id"><br>
 パスワード：<input type="text" name="pass"><br>
-名前      ：<input type="text" name="name"><br>
+名前　　　：<input type="text" name="name"><br>
 <br>
 <input type="submit" value="確認">
 </form>
