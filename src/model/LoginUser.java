@@ -20,11 +20,17 @@ public class LoginUser implements Serializable{
 	public String getLogin_Id() {
 		return login_id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public String getPass() {
 		return pass;
+	}
+
+	public int getId() {
+		return id;
 	}
 
 }
