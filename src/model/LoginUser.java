@@ -8,7 +8,7 @@ public class LoginUser implements Serializable{
 	private String login_id;
 	private String name;
 	private String pass;
-
+	private String error;
 	public LoginUser(){}
 	public LoginUser(String id, String name, String pass){
 		this.login_id = id;
@@ -33,4 +33,11 @@ public class LoginUser implements Serializable{
 		return id;
 	}
 
+	public void putError(String error) {
+		this.error = error;
+	}
+
+	public String getError() {
+		return error;
+	}
 }

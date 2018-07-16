@@ -6,7 +6,7 @@ import DAO.LoginUserDAO;
 public class CheckUser {
 	LoginUserDAO userDao = new LoginUserDAO();
 
-	public boolean exute(LoginUser user){
+	public boolean login(LoginUser user){
 		boolean registCheck = false;
 		//登録処理
 		try {

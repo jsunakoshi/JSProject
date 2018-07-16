@@ -53,6 +53,7 @@ public class LoginUserDAO {
 
 	// データを追加
 	public boolean checkUser(LoginUser user) throws DAOException {
+		String error = "";
 		getConnection();
 		boolean bFound = false;
 		//int count = 0;
@@ -69,13 +70,20 @@ public class LoginUserDAO {
 				}
 			}
 		} catch(SQLException e) {
+			error = "SQLエラー"+sql;
 			throw new DAOException("[UserDAO#insertMember]異常", e);
 		} finally {
 			close();
 		}
+		if(!bFound) {
+			if(error.isEmpty()){
+				error = "IDまたは、パスワードが違います！";
+			}
+			user.putError(error);
+		}
 		return bFound;
 	}
-	
+
 	private void close() throws DAOException {
 		try {
 			if (stmt != null) { stmt.close(); }
