@@ -7,10 +7,10 @@ import java.sql.SQLException;
 public class ConnectionManager {
 
 	// URL・ユーザ名・パスワードの設定
-	//private final static String URL = "jdbc:mysql://localhost:3306/webdb?useSSL=false";
-	private final static String URL = "dbc:sqlserver://127.0.0.1:1433;DatabaseName=JSProjectDB";
+	private final static String URL = "jdbc:mysql://localhost:3306/JSProjectDB?useSSH=false&characterEncoding=UTF-8&serverTimezone=JST";
+	//private final static String URL = "dbc:sqlserver://127.0.0.1:1433;DatabaseName=JSProjectDB";
 	private final static String USER = "junichi";
-	private final static String PASSWORD = "jun0708";
+	private final static String PASSWORD = "_junichi_";
 	// コネクションオブジェクト
 	private Connection connection = null;
 
@@ -23,6 +23,7 @@ public class ConnectionManager {
 	static {
 		// JDBCドライバのロード
 		String drv = "com.mysql.jdbc.Driver";
+		//String drv = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		try {
 			Class.forName(drv);
 		} catch (ClassNotFoundException e) {
