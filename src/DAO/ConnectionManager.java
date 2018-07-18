@@ -7,8 +7,8 @@ import java.sql.SQLException;
 public class ConnectionManager {
 
 	// URL・ユーザ名・パスワードの設定
-	//private final static String URL = "jdbc:mysql://localhost:3306/webdb?useSSL=false";
-	private final static String URL = "dbc:sqlserver://127.0.0.1:1433;DatabaseName=JSProjectDB";
+	private final static String URL = "jdbc:mysql://localhost:3306/JSProjectDB?useSSL=false";
+	//private final static String URL = "dbc:sqlserver://127.0.0.1:1433;DatabaseName=JSProjectDB";
 	private final static String USER = "junichi";
 	private final static String PASSWORD = "jun0708";
 	// コネクションオブジェクト
