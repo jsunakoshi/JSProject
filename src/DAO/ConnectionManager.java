@@ -51,7 +51,7 @@ public class ConnectionManager {
 			connection = DriverManager.getConnection(URL, USER, PASSWORD);
 		} catch (SQLException e) {
 			connection = null;
-			throw new DAOException("[conect]異常", e);
+			throw new DAOException("[conect]異常", e);github
 		}
 		return connection;
 	}
