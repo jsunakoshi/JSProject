@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ユーザー登録</title>
+<title>サイト登録</title>
 </head>
 <body>
-<p>登録完了しました。</p>
+<p>サイト登録完了しました。</p>
 <br>
-<a href="/JSProject/RegisterLoginUser">戻る</a>
-<a href="/JSProject/RegisterLoginUser">ログイン</a>
+<a href="/JSProject/RegisterSiteInfo">サイト登録へ</a>
+
 </body>
 </html>
