@@ -7,10 +7,11 @@ import java.sql.SQLException;
 public class ConnectionManager {
 
 	// URL・ユーザ名・パスワードの設定
-	private final static String URL = "jdbc:mysql://localhost:3306/JSProjectDB?useSSH=false&characterEncoding=UTF-8&serverTimezone=JST";
+	//private final static String URL = "jdbc:mysql://localhost:3306/JSProjectDB?useSSH=false&characterEncoding=UTF-8&serverTimezone=JST";
+	private final static String URL = "jdbc:mysql://localhost:3306/JSProjectDB";
 	//private final static String URL = "dbc:sqlserver://127.0.0.1:1433;DatabaseName=JSProjectDB";
-	private final static String USER = "junichi";
-	private final static String PASSWORD = "_junichi_";
+	private final static String USER = "root";
+	private final static String PASSWORD = "mysql";
 	// コネクションオブジェクト
 	private Connection connection = null;
 
@@ -51,7 +52,7 @@ public class ConnectionManager {
 			connection = DriverManager.getConnection(URL, USER, PASSWORD);
 		} catch (SQLException e) {
 			connection = null;
-			throw new DAOException("[conect]異常", e);github
+			throw new DAOException("[conect]異常", e);
 		}
 		return connection;
 	}

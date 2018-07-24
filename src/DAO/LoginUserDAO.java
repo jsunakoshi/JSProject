@@ -33,13 +33,13 @@ public class LoginUserDAO {
 	public int insertUser(LoginUser user) throws DAOException {
 		getConnection();
 		int count = 0;
-		String sql = "INSERT INTO login_user (login_id,name, password) VALUES(?, ?, ?)";
-		int id = Integer.parseInt(user.getLogin_Id());
+		String sql = "INSERT INTO login_user (login_id,name, passwrd) VALUES(?, ?, ?)";
+		String id = user.getLogin_Id();
 		String name = user.getName();
 		String pass = user.getPass();
 
 		try(PreparedStatement pstmt = con.prepareStatement(sql)) {
-			pstmt.setInt(1, id);
+			pstmt.setString(1, id);
 			pstmt.setString(2, name);
 			pstmt.setString(3, pass);
 			count += pstmt.executeUpdate();
