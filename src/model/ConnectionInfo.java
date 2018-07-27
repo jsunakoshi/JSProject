@@ -28,4 +28,8 @@ public class ConnectionInfo {
 	public long getEnd_Time() {
 		return end_time;
 	}
+
+	public boolean insert() {
+		return true;
+	}
 }

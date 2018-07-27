@@ -23,8 +23,8 @@ public class ConnectionInfoDAO {
 		if ( this.stmt != null){ 	return; }
 		try {
 			stmt =con.createStatement();
-		} catch (SQLException e) {  // SQLに関する例外処理
-			throw new DAOException("[createStmt]異常", e);
+		} catch (SQLException ex) {  // SQLに関する例外処理
+			throw new DAOException("[createStmt]異常", ex);
 		}
 	}
 

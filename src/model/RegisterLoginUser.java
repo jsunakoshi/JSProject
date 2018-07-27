@@ -7,8 +7,10 @@ import DAO.LoginUserDAO;
 public class RegisterLoginUser {
 	LoginUserDAO memberDao = new LoginUserDAO();
 
-	public boolean exute(LoginUser user){
+	public boolean exeute(LoginUser user){
+		System.out.println("model.RegisterLoginUser execute");
 		boolean registCheck = false;
+
 		//登録処理
 		try {
 			memberDao.insertUser(user);

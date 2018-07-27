@@ -54,4 +54,8 @@ public class SiteInfo {
 	public void putComment(String comment) {
 		this.comment = comment;
 	}
+
+	public boolean insert() {
+		return true;
+	}
 }

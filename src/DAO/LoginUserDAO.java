@@ -10,17 +10,23 @@ import model.LoginUser;
 public class LoginUserDAO {
 	private Connection con = null; 	// コネクションオブジェクト
 	private Statement stmt = null; 	// ステートメントオブジェクト
-	private ConnectionManager cm; // コネクションマネージャー
+	//private ConnectionManager cm = new ConnectionManager(); // コネクションマネージャー
+	private ConnectionManager cm = null; // コネクションマネージャー
 
 	// Connectionの取得
 	private void getConnection() throws DAOException{
 		if ( this.con != null ){ return; 	}
 		cm = ConnectionManager.getInstance();
-		con = cm.getConnection(); // データベースへの接続の取得
+		try {
+			con = cm.getConnection(); // データベースへの接続の取得
+		}catch(DAOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	// Statementの取得
 	private void createStmt() throws DAOException{
+
 		if ( this.stmt != null){ 	return; }
 		try {
 			stmt =con.createStatement();
@@ -31,9 +37,11 @@ public class LoginUserDAO {
 
 	// データを追加
 	public int insertUser(LoginUser user) throws DAOException {
+		System.out.println("DAO.LoginUserDAO データの追加");
 		getConnection();
+		System.out.println("DAO.LoginUserDAO getConnection成功");
 		int count = 0;
-		String sql = "INSERT INTO login_user (login_id,name, passwrd) VALUES(?, ?, ?)";
+		String sql = "INSERT INTO login_user (login_id,name, password) VALUES(?, ?, ?)";
 		String id = user.getLogin_Id();
 		String name = user.getName();
 		String pass = user.getPass();
@@ -42,11 +50,10 @@ public class LoginUserDAO {
 			pstmt.setString(1, id);
 			pstmt.setString(2, name);
 			pstmt.setString(3, pass);
-			count += pstmt.executeUpdate();
-		} catch(SQLException e) {
-			throw new DAOException("[UserDAO#insertMember]異常", e);
-		} finally {
-			close();
+			count = pstmt.executeUpdate();
+			pstmt.close();
+		} catch(SQLException ex) {
+			throw new DAOException("[UserDAO#insertMember]異常", ex);
 		}
 		return count;
 	}

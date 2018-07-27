@@ -62,6 +62,9 @@ public class RegisterSiteInfo extends HttpServlet {
 
 			//登録後のフォワード先を設定
 			forwardPath = "/WEB-INF/jsp/registerDone.jsp";
+			// 設定されたフォワード先を設定
+			RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+			dispatcher.forward(request, response);
 
 		}
 	}

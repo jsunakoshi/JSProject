@@ -10,10 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DAO.DAOException;
 import DAO.LoginUserDAO;
 import model.LoginUser;
-
 
 /**
  * Servlet implementation class RegisterLoginUser
@@ -53,16 +51,22 @@ public class RegisterLoginUser extends HttpServlet {
 			//セッションスコープに保存された登録ユーザを
 			HttpSession session = request.getSession();
 			LoginUser registerUser = (LoginUser)session.getAttribute("registerUser");
+			System.out.println("Start servlet.RegisterLoginUser.doGet");
+			System.out.println("ID="+registerUser.getLogin_Id());
+			System.out.println("PW="+registerUser.getPass());
+			System.out.println("Name="+registerUser.getName());
 
 			//登録処理の呼び出し
 			//RegisterLoginUser logic = new RegisterLoginUser();
 			//logic.exute(registerUser);
-			exute(registerUser);
+			boolean bsuccess=registerUser.insert();
 			//不要となったセッションスコープ内のインスタンスを削除
 			session.removeAttribute("registerUser");
-
-			//登録後のフォワード先を設定
-			forwardPath = "/WEB-INF/jsp/registerDone.jsp";
+			if(bsuccess)
+				//登録後のフォワード先を設定
+				forwardPath = "/WEB-INF/jsp/registerDone.jsp";
+			else
+				forwardPath = "/WEB-INF/jsp/registerNot.jsp";
 
 		}
 
@@ -94,18 +98,23 @@ public class RegisterLoginUser extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registerConfirm.jsp");
 		dispatcher.forward(request, response);
 	}
-
-	public boolean exute(LoginUser user){
-		boolean registCheck = false;
+/*
+	public boolean execute(LoginUser user){
+		System.out.println("Start servlet.RegisterLoginUser execute");
+		System.out.println("ID="+user.getLogin_Id());
+		System.out.println("PW="+user.getPass());
+		System.out.println("Name="+user.getName());
+		boolean registCheck = user.insert();
 		//登録処理
-		try {
-			memberDao.insertUser(user);
-			registCheck = true;
+		//try {
+			;
+			registCheck = ;
 		} catch (DAOException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
+		System.out.println("End execute");
 		return registCheck;
 	}
-
+*/
 }

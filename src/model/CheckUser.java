@@ -4,6 +4,7 @@ import DAO.DAOException;
 import DAO.LoginUserDAO;
 
 public class CheckUser {
+
 	LoginUserDAO userDao = new LoginUserDAO();
 
 	public boolean login(LoginUser user){
